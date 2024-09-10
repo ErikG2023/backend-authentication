@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ecommerce
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      TZ: 'UTC'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    command: ['postgres', '-c', 'timezone=UTC']
+
+volumes:
+  postgres_data:
